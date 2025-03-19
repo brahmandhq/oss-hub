@@ -29,14 +29,16 @@ export function Navbar() {
             >
               Programs
             </Link>
-            <Link
+            {/* <Link
               href="/resources"
               className="flex items-center text-lg font-medium transition-colors hover:text-primary"
             >
               Resources
-            </Link>
+            </Link> */}
             <Link
-              href="/community"
+              href="https://dub.sh/goodgigs-2"
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex items-center text-lg font-medium transition-colors hover:text-primary"
             >
               Community

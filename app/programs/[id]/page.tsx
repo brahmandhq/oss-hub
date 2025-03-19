@@ -271,7 +271,7 @@ export default function GuideDetailPage({
               ))}
             </div>
 
-            <Link href="/guide">
+            <Link href="/programs">
               <Button variant="outline" className="w-full">
                 Back to Guide
               </Button>

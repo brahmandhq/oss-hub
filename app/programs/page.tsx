@@ -267,7 +267,7 @@ export default function GuidePage() {
                     </span>
                   ))}
                 </div>
-                <Link href={`/guide/${program.id}`} className="mt-auto">
+                <Link href={`/programs/${program.id}`} className="mt-auto">
                   <Button className="w-full">Learn More</Button>
                 </Link>
               </div>

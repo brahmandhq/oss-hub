@@ -33,7 +33,7 @@ export default function Home() {
               growing in the world of open source programs and initiatives.
             </p>
             <div className="mt-10 flex gap-4 justify-center">
-              <Link href="/guide">
+              <Link href="/programs">
                 <Button size="lg">
                   <Search className="mr-2 h-5 w-5" />
                   Explore Programs
@@ -77,7 +77,7 @@ export default function Home() {
                   {program.description}
                 </p>
                 <div className="flex justify-between items-center">
-                  <Link href={`/guide/${program.id}`} className="mt-auto">
+                  <Link href={`/programs/${program.id}`} className="mt-auto">
                     <Button className="w-full">Learn More</Button>
                   </Link>
                   <div className="flex items-center gap-2 text-muted-foreground">
