@@ -34,7 +34,7 @@ const programs = [
     timeline: "March - September",
     stipend: "$1,500 - $3,300",
     icon: Code,
-    link: "/programs/gsoc",
+    link: "https://summerofcode.withgoogle.com/",
     tags: ["Students", "Coding", "Mentorship"],
     logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/GSoC_logo.svg/1200px-GSoC_logo.svg.png",
   },
@@ -44,9 +44,9 @@ const programs = [
     description:
       "Provides internships in open source and open science to people subject to systemic bias and impacted by underrepresentation in the technical industry.",
     timeline: "December - March & May - August",
-    stipend: "$6,000",
+    stipend: "$7,000",
     icon: Heart,
-    link: "/programs/outreachy",
+    link: "https://www.outreachy.org/",
     tags: ["Diversity", "Internship", "Remote"],
     logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Outreachy-bot-avatar.svg/1646px-Outreachy-bot-avatar.svg.png",
   },
@@ -58,7 +58,7 @@ const programs = [
     timeline: "October",
     stipend: "Swag rewards",
     icon: Gift,
-    link: "/programs/hacktoberfest",
+    link: "https://hacktoberfest.com/",
     tags: ["Beginners", "Open Source", "Swag"],
     logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOZlh8NgUoArqNKUxE-vtN4jKXQZpuG3L_zw&s",
   },
@@ -70,7 +70,7 @@ const programs = [
     timeline: "Year-round (12-week sessions)",
     stipend: "$5,000",
     icon: Users,
-    link: "/programs/mlh-fellowship",
+    link: "https://fellowship.mlh.io/",
     tags: ["Students", "Remote", "Fellowship"],
     logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWneh8QgboyXva8BcK3b5uH8u1X5cUxUD4gA&s",
   },
@@ -82,7 +82,7 @@ const programs = [
     timeline: "January - March",
     stipend: "Certificate",
     icon: Globe,
-    link: "/programs/season-of-kde",
+    link: "https://mentorship.kde.org/sok/",
     tags: ["KDE", "Open Source", "Students"],
     logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIiyFPo1YwW5tIYfFN1aivCLUV3A2CyAO6EA&s",
   },
@@ -94,7 +94,7 @@ const programs = [
     timeline: "Year-round",
     stipend: "$3,000 - $6,600",
     icon: BookOpen,
-    link: "/programs/lfx-mentorship",
+    link: "https://lfx.linuxfoundation.org/tools/mentorship/",
     tags: ["Linux", "Mentorship", "Open Source"],
     logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQD0pUBzhqaGKqZMbpzQZI0X-N6kCekFPj2Q&s",
   },
@@ -106,7 +106,7 @@ const programs = [
     timeline: "March - November",
     stipend: "Project-based",
     icon: Trophy,
-    link: "/programs/season-of-docs",
+    link: "https://opensource.googleblog.com/2024/02/announcing-google-season-of-docs-2024.html",
     tags: ["Documentation", "Technical Writing"],
     logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSU2zg1DzIUfrz5hPALFQ8aMVmA84Ofj0cMnw&s",
   },
@@ -118,7 +118,7 @@ const programs = [
     timeline: "June - August",
     stipend: "$1,500",
     icon: Rocket,
-    link: "/programs/fossasia",
+    link: "https://fossi-foundation.org/gsoc",
     tags: ["FOSS", "Asia", "Students"],
     logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0GGkpd-Xtao-2NlFCur92Y5ht-7n3To4uwQ&s",
   },
@@ -130,7 +130,7 @@ const programs = [
     timeline: "November - January",
     stipend: "Certificates and prizes",
     icon: Code,
-    link: "/programs/google-code-in",
+    link: "https://code.google.com/",
     tags: ["Pre-university", "Coding", "Contest"],
     logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkscszxS71BsoyQ_4e2NY79LvFkJlAmzdlWw&s",
   },
@@ -142,7 +142,7 @@ const programs = [
     timeline: "July - September",
     stipend: "€1,500 per month",
     icon: Heart,
-    link: "/programs/rails-girls-summer-of-code",
+    link: "https://railsgirlssummerofcode.org/",
     tags: ["Diversity", "Ruby on Rails", "Fellowship"],
     logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQr5IhCF5wIlDGEL6_nOKL7hiihRfFumHSJA&s",
   },
@@ -154,7 +154,7 @@ const programs = [
     timeline: "Year-round",
     stipend: "N/A",
     icon: Bot,
-    link: "/programs/open-roberta",
+    link: "https://lab.open-roberta.org/",
     tags: ["Education", "Robotics", "Children"],
     logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTocdHak55os6MVnzeAAdtaS_aZIcIWyLYg_A&s",
   },
@@ -166,7 +166,7 @@ const programs = [
     timeline: "Year-round",
     stipend: "N/A",
     icon: Book,
-    link: "/programs/curriki",
+    link: "https://www.curriki.org/",
     tags: ["Education", "K-12", "Open Educational Resources"],
     logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHC59DHdCre8JMpBdGXWdFxC1N2ahcy5X6sQ&s",
   },
@@ -178,7 +178,7 @@ const programs = [
     timeline: "Twice a year",
     stipend: "N/A",
     icon: Users,
-    link: "/programs/mozilla-open-leaders",
+    link: "https://foundation.mozilla.org/en/initiatives/mozilla-open-leaders/",
     tags: ["Leadership", "Open Source", "Mentorship"],
     logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWTKWsLIo1o6luOxFS7m3n504y_dVYyLjhug&s",
   },
@@ -190,7 +190,7 @@ const programs = [
     timeline: "Varies",
     stipend: "$1,000 - $3,000",
     icon: Paintbrush,
-    link: "/programs/processing-foundation-fellowships",
+    link: "https://processingfoundation.org/fellowships",
     tags: ["Art", "Coding", "Education"],
     logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4IDeecXbBT_jMcrlAy-IQg_jrbXHCoeeFtQ&s",
   },
@@ -202,7 +202,7 @@ const programs = [
     timeline: "Annual",
     stipend: "Varies",
     icon: ChefHat,
-    link: "/programs/red-hat-open-source-contest",
+    link: "https://research.redhat.com/events/open-source-contest/",
     tags: ["Students", "Open Source", "Mentorship"],
     logo: "https://miro.medium.com/v2/resize:fit:928/0*tp9JdbF_30AQYnTY.png",
   },
@@ -214,9 +214,93 @@ const programs = [
     timeline: "Annual",
     stipend: "Training courses",
     icon: Laptop,
-    link: "/programs/linux-foundation-training-scholarships",
+    link: "https://training.linuxfoundation.org/blog/lift-2024/",
     tags: ["Linux", "Training"],
     logo: "https://lcom.static.linuxfound.org/sites/lcom/files/lift-001.png",
+  },
+  {
+    id: "TOR",
+    title: "TOR Summer of Privacy",
+    description:
+      "The Tor Project, in collaboration with The Electronic Frontier Foundation, has taken part in Google Summer of Code for 2007 through 2014, mentoring a total of 53 students. This year the program was trimmed back and room was needed for new organizations.",
+    timeline: "April - September",
+    stipend: "$5,500",
+    icon: Code,
+    link: "https://gitlab.torproject.org/legacy/trac/-/wikis/org/TorSoP#tor-summer-of-privacy-2015----applications-due-april-17th",
+    tags: ["Students", "Security", "Mentorship"],
+    logo: "https://gitlab.torproject.org/uploads/-/system/appearance/header_logo/1/purple.svg",
+  },
+  {
+    id: "DataOne",
+    title: "Data One Summer Programme",
+    description:
+      "Undergraduates, graduates and recent postgraduates are invited to apply to work remotely with DataONE for nine weeks.",
+    timeline: "May - July",
+    stipend: "$5,000",
+    icon: Code,
+    link: "https://lternet.edu/opportunities/dataone-summer-internship-program/",
+    tags: ["Graduate", "Post-Graduate", "Collabarative"],
+    logo: "https://lternet.edu/wp-content/themes/ndic/library/images/logo.svg",
+  },
+  {
+    id: "JULIA",
+    title: "Julia Summer Of Code",
+    description:
+      "The Julia Seasons of Contributions (JSoC) are the seasonal programs for funding and/or mentoring developers to contribute to the open source ecosystem. Below are the current programs that the Julia Language is participating in.",
+    timeline: "Annual",
+    stipend: "$5,000 - $9,000",
+    icon: Code,
+    link: "https://julialang.org/jsoc/",
+    tags: ["Graduate", "Post-Graduate", "Collabarative"],
+    logo: "https://julialang.org/assets/infra/logo.svg",
+  },
+  {
+    id: "SummerOfHaskell",
+    title: "Summer Of Haskell",
+    description:
+      "The Summer of Haskell is an effort by Haskell.Org to reach out to students and encourage them to contribute to the Haskell community with the aid of experienced mentors. This program is open to all college students and newcomers to open-source Haskell contributions, age 18 years or older, in most countries.",
+    timeline: "Annual",
+    stipend: "$1.500 - $3,300",
+    icon: Code,
+    link: "https://summer.haskell.org/",
+    tags: ["Students", "Collaborative", "Mentorship"],
+    logo: "https://summer.haskell.org/images/haskell-logo.png",
+  },
+  {
+    id: "OpenSOC",
+    title: "Open Summer Of Code",
+    description:
+      "A 4-week summer programme in July, that provides Belgian based students the training, network and support necessary to transform open innovation projects into powerful real-world services.",
+    timeline: "July - November",
+    stipend: "$1.000 - $2,000",
+    icon: Code,
+    link: "https://osoc.be/",
+    tags: ["Students", "Collaborative", "Mentorship"],
+    logo: "https://osoc.be/img/logo/logo-osoc-color.svg",
+  },
+  {
+    id: "RedoxSOC",
+    title: "Redox OS Summer of Code",
+    description:
+      "A 8-week summer programme, that provides opportunity to contribute to Redox or to a Redox-adjacent project.",
+    timeline: "Annual",
+    stipend: "$1.000 - $2,000",
+    icon: Code,
+    link: "https://www.redox-os.org/rsoc/",
+    tags: ["Experienced", "Rust", "Kernel"],
+    logo: "https://www.redox-os.org/img/logo-dark.png",
+  },
+  {
+    id: "GoogleSummerofEarthEngine",
+    title: "Google Summer of Earth Engine",
+    description:
+      "Google Summer of Earth Engine is a research program for Indian university students & researchers to get a chance to work with leading research organizations in the country working in environment, conservation, water resources and agricultural domains over 3 months of summer on a project and get paid to do so!",
+    timeline: "May - July",
+    stipend: "Rs. 1,20,000",
+    icon: Code,
+    link: "https://sites.google.com/view/summerofearthengine/home",
+    tags: ["Students", "Research", "Mentorship"],
+    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSTVFAk1QkvWLCPvUH5kwqBvD7CNk_GRKCzw&s",
   },
 ];
 
@@ -271,11 +355,22 @@ export default function GuideDetailPage({
               ))}
             </div>
 
-            <Link href="/programs">
-              <Button variant="outline" className="w-full">
-                Back to Guide
-              </Button>
-            </Link>
+            <div className="flex flex-col gap-4">
+              <Link
+                href={program.link}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button variant="default" className="w-full">
+                  Visit the Official Docs
+                </Button>
+              </Link>
+              <Link href="/programs">
+                <Button variant="outline" className="w-full">
+                  Back to Guide
+                </Button>
+              </Link>
+            </div>
           </CardContent>
         </Card>
       </div>

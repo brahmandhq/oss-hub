@@ -32,15 +32,15 @@ export default function Home() {
               Your comprehensive resource for discovering, contributing, and
               growing in the world of open source programs and initiatives.
             </p>
-            <div className="mt-10 flex gap-4 justify-center">
+            <div className="mt-10 flex gap-4 justify-center ml-2 mr-2 ">
               <Link href="/programs">
                 <Button size="lg">
-                  <Search className="mr-2 h-5 w-5" />
+                  <Search className="mr-2 h-5 w-4" />
                   Explore Programs
                 </Button>
               </Link>
               <Button variant="outline" size="lg">
-                <Github className="mr-2 h-5 w-5" />
+                <Github className="mr-2 h-5 w-4" />
                 View on GitHub
               </Button>
             </div>
