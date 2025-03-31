@@ -75,6 +75,18 @@ const programs = [
     logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWneh8QgboyXva8BcK3b5uH8u1X5cUxUD4gA&s",
   },
   {
+    id: "FOSSEE",
+    title: "FOSSEE Summer Fellowship",
+    description:
+      "This is funded by National Mission on Education through ICT, MoE, Government of India. All college students of all streams can participate.",
+    timeline: "March - April",
+    stipend: "Jobs and Internships Opportunities",
+    icon: Gift,
+    link: "https://fossee.in/fellowship/2025",
+    tags: ["Job Opportunity", "Internship", "Higher Studies"],
+    logo: "https://fossee.in/sites/all/themes/software_responsive_theme/img/logo.png",
+  },
+  {
     id: "SeasonOfKDE",
     title: "Season of KDE",
     description:

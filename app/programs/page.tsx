@@ -46,6 +46,18 @@ const programs = [
     logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Outreachy-bot-avatar.svg/1646px-Outreachy-bot-avatar.svg.png",
   },
   {
+    id: "FOSSEE",
+    title: "FOSSEE Summer Fellowship",
+    description:
+      "This is funded by National Mission on Education through ICT, MoE, Government of India.",
+    timeline: "March - April",
+    stipend: "Jobs and Internships Opportunities",
+    icon: Gift,
+    link: "https://fossee.in/fellowship/2025",
+    tags: ["Job Opportunity", "Internship", "Higher Studies"],
+    logo: "https://fossee.in/sites/all/themes/software_responsive_theme/img/logo.png",
+  },
+  {
     id: "Hacktoberfest",
     title: "Hacktoberfest",
     description:
