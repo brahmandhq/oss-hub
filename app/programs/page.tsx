@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
 import {
   Calendar,
   Globe,
@@ -17,8 +18,10 @@ import {
   Paintbrush,
   ChefHat,
   Laptop,
+  Search,
 } from "lucide-react";
 import Link from "next/link";
+import { useState } from "react";
 
 const programs = [
   {
@@ -312,63 +315,166 @@ const programs = [
 ];
 
 export default function GuidePage() {
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const filteredPrograms = programs.filter((program) =>
+    program.title.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
-    <div className="min-h-screen bg-background py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl md:text-6xl">
+    <div className="min-h-screen bg-background">
+      {/* Search Section with Background Image */}
+      <div
+        className="w-full h-80 bg-cover bg-center flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8"
+        style={{
+          backgroundImage:
+            "url('https://as1.ftcdn.net/v2/jpg/09/90/72/86/1000_F_990728647_j5pqnDsGQHKibMu5VP41h55bTvYZIr6k.jpg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          position: "relative",
+        }}
+      >
+        {/* Overlay for better text readability */}
+        <div className="absolute inset-0 bg-black bg-opacity-60"></div>
+
+        <div className="z-10 text-center mb-8">
+          <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl">
             Open Source Programs
           </h1>
-          <p className="mt-3 max-w-2xl mx-auto text-xl text-muted-foreground sm:mt-4">
+          <p className="mt-3 max-w-2xl mx-auto text-xl text-gray-200 sm:mt-4">
             Discover opportunities to contribute, learn, and grow in the open
             source community
           </p>
         </div>
 
-        <div className="mt-10 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {programs.map((program) => (
-            <Card
-              key={program.title}
-              className="flex flex-col overflow-hidden hover:shadow-lg transition-shadow"
-            >
-              <div className="p-6">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="h-16 w-16 flex justify-center items-center">
-                    <img
-                      src={program.logo}
-                      alt={program.title}
-                      className="max-h-full max-w-full object-contain"
-                    />
-                  </div>
-                  <h3 className="text-xl font-semibold">{program.title}</h3>
-                </div>
-                <p className="text-muted-foreground mb-4">
-                  {program.description.slice(0, 100)}...
-                </p>
-                <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
-                  <Calendar className="h-4 w-4" />
-                  <span>{program.timeline}</span>
-                </div>
-                <div className="flex items-center gap-2 text-sm text-muted-foreground mb-4">
-                  <Gift className="h-4 w-4" />
-                  <span>{program.stipend}</span>
-                </div>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {program.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-2 py-1 bg-secondary text-secondary-foreground text-xs rounded-full"
+        <div className="z-10 w-full max-w-md">
+          <div className="relative">
+            <Input
+              type="text"
+              placeholder="Search for programs..."
+              className="w-full pl-10 pr-4 py-3 rounded-lg"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
+          </div>
+        </div>
+      </div>
+      {searchQuery && (
+        <div className=" py-6 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto">
+            <h2 className="text-2xl font-semibold mb-4">Search Results</h2>
+            {filteredPrograms.length > 0 ? (
+              <div className="max-h-96 overflow-y-auto pr-2">
+                <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+                  {filteredPrograms.map((program) => (
+                    <Card
+                      key={program.title}
+                      className="flex flex-col overflow-hidden hover:shadow-lg transition-shadow"
                     >
-                      {tag}
-                    </span>
+                      <div className="p-4">
+                        <div className="flex items-center gap-3 mb-3">
+                          <div className="h-12 w-12 flex justify-center items-center">
+                            <img
+                              src={program.logo}
+                              alt={program.title}
+                              className="max-h-full max-w-full object-contain"
+                            />
+                          </div>
+                          <h3 className="text-lg font-semibold">
+                            {program.title}
+                          </h3>
+                        </div>
+                        <div className="flex items-center gap-2 text-sm text-muted-foreground mb-1">
+                          <Calendar className="h-4 w-4" />
+                          <span>{program.timeline}</span>
+                        </div>
+                        <div className="flex flex-wrap gap-1 mb-3">
+                          {program.tags.map((tag) => (
+                            <span
+                              key={tag}
+                              className="px-2 py-0.5 bg-secondary text-secondary-foreground text-xs rounded-full"
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                        <Link
+                          href={`/programs/${program.id}`}
+                          className="mt-auto"
+                        >
+                          <Button size="sm" className="w-full">
+                            Learn More
+                          </Button>
+                        </Link>
+                      </div>
+                    </Card>
                   ))}
                 </div>
-                <Link href={`/programs/${program.id}`} className="mt-auto">
-                  <Button className="w-full">Learn More</Button>
-                </Link>
               </div>
-            </Card>
-          ))}
+            ) : (
+              <p className="text-muted-foreground">
+                No programs found matching your search.
+              </p>
+            )}
+          </div>
+        </div>
+      )}
+
+      {/* Programs Grid Section - Original section kept intact */}
+      <div className="py-12 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h3 className="text-4xl font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl">
+              All Programs
+            </h3>
+          </div>
+
+          <div className="mt-10 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {programs.map((program) => (
+              <Card
+                key={program.title}
+                className="flex flex-col overflow-hidden hover:shadow-lg transition-shadow"
+              >
+                <div className="p-6">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="h-16 w-16 flex justify-center items-center">
+                      <img
+                        src={program.logo}
+                        alt={program.title}
+                        className="max-h-full max-w-full object-contain"
+                      />
+                    </div>
+                    <h3 className="text-xl font-semibold">{program.title}</h3>
+                  </div>
+                  <p className="text-muted-foreground mb-4">
+                    {program.description.slice(0, 100)}...
+                  </p>
+                  <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
+                    <Calendar className="h-4 w-4" />
+                    <span>{program.timeline}</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm text-muted-foreground mb-4">
+                    <Gift className="h-4 w-4" />
+                    <span>{program.stipend}</span>
+                  </div>
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {program.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="px-2 py-1 bg-secondary text-secondary-foreground text-xs rounded-full"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  <Link href={`/programs/${program.id}`} className="mt-auto">
+                    <Button className="w-full">Learn More</Button>
+                  </Link>
+                </div>
+              </Card>
+            ))}
+          </div>
         </div>
       </div>
     </div>
