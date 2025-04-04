@@ -385,6 +385,9 @@ export default function GuidePage() {
                             {program.title}
                           </h3>
                         </div>
+                        <p className="text-muted-foreground mb-4">
+                          {program.description.slice(0, 100)}...
+                        </p>
                         <div className="flex items-center gap-2 text-sm text-muted-foreground mb-1">
                           <Calendar className="h-4 w-4" />
                           <span>{program.timeline}</span>
