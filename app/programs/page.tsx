@@ -19,6 +19,8 @@ import {
   ChefHat,
   Laptop,
   Search,
+  LayoutGrid,
+  Table as TableIcon,
 } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
@@ -316,6 +318,7 @@ const programs = [
 
 export default function GuidePage() {
   const [searchQuery, setSearchQuery] = useState("");
+  const [activeView, setActiveView] = useState("card"); // "card" or "table"
 
   const filteredPrograms = programs.filter((program) =>
     program.title.toLowerCase().includes(searchQuery.toLowerCase())
@@ -360,60 +363,148 @@ export default function GuidePage() {
           </div>
         </div>
       </div>
+
+      {/* Search Results */}
       {searchQuery && (
-        <div className=" py-6 px-4 sm:px-6 lg:px-8">
+        <div className="py-6 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
             <h2 className="text-2xl font-semibold mb-4">Search Results</h2>
             {filteredPrograms.length > 0 ? (
               <div className="max-h-96 overflow-y-auto pr-2">
-                <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-                  {filteredPrograms.map((program) => (
-                    <Card
-                      key={program.title}
-                      className="flex flex-col overflow-hidden hover:shadow-lg transition-shadow"
-                    >
-                      <div className="p-4">
-                        <div className="flex items-center gap-3 mb-3">
-                          <div className="h-12 w-12 flex justify-center items-center">
-                            <img
-                              src={program.logo}
-                              alt={program.title}
-                              className="max-h-full max-w-full object-contain"
-                            />
+                {activeView === "card" ? (
+                  <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+                    {filteredPrograms.map((program) => (
+                      <Card
+                        key={program.title}
+                        className="flex flex-col overflow-hidden hover:shadow-lg transition-shadow"
+                      >
+                        <div className="p-4">
+                          <div className="flex items-center gap-3 mb-3">
+                            <div className="h-12 w-12 flex justify-center items-center">
+                              <img
+                                src={program.logo}
+                                alt={program.title}
+                                className="max-h-full max-w-full object-contain"
+                              />
+                            </div>
+                            <h3 className="text-lg font-semibold">
+                              {program.title}
+                            </h3>
                           </div>
-                          <h3 className="text-lg font-semibold">
-                            {program.title}
-                          </h3>
+                          <p className="text-muted-foreground mb-4">
+                            {program.description.slice(0, 100)}...
+                          </p>
+                          <div className="flex items-center gap-2 text-sm text-muted-foreground mb-1">
+                            <Calendar className="h-4 w-4" />
+                            <span>{program.timeline}</span>
+                          </div>
+                          <div className="flex flex-wrap gap-1 mb-3">
+                            {program.tags.map((tag) => (
+                              <span
+                                key={tag}
+                                className="px-2 py-0.5 bg-secondary text-secondary-foreground text-xs rounded-full"
+                              >
+                                {tag}
+                              </span>
+                            ))}
+                          </div>
+                          <Link
+                            href={`/programs/${program.id}`}
+                            className="mt-auto"
+                          >
+                            <Button size="sm" className="w-full">
+                              Learn More
+                            </Button>
+                          </Link>
                         </div>
-                        <p className="text-muted-foreground mb-4">
-                          {program.description.slice(0, 100)}...
-                        </p>
-                        <div className="flex items-center gap-2 text-sm text-muted-foreground mb-1">
-                          <Calendar className="h-4 w-4" />
-                          <span>{program.timeline}</span>
-                        </div>
-                        <div className="flex flex-wrap gap-1 mb-3">
-                          {program.tags.map((tag) => (
-                            <span
-                              key={tag}
-                              className="px-2 py-0.5 bg-secondary text-secondary-foreground text-xs rounded-full"
-                            >
-                              {tag}
-                            </span>
-                          ))}
-                        </div>
-                        <Link
-                          href={`/programs/${program.id}`}
-                          className="mt-auto"
-                        >
-                          <Button size="sm" className="w-full">
-                            Learn More
-                          </Button>
-                        </Link>
-                      </div>
-                    </Card>
-                  ))}
-                </div>
+                      </Card>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="w-full">
+                    <table className="w-full">
+                      <thead className="bg-muted">
+                        <tr>
+                          <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
+                            Program
+                          </th>
+                          <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
+                            Timeline
+                          </th>
+                          <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
+                            Stipend
+                          </th>
+                          <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
+                            Tags
+                          </th>
+                          <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
+                            Actions
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {filteredPrograms.map((program, idx) => (
+                          <tr
+                            key={program.id}
+                            className={
+                              idx % 2 === 0 ? "bg-background" : "bg-muted/50"
+                            }
+                          >
+                            <td className="px-6 py-4">
+                              <div className="flex items-center">
+                                <div className="flex-shrink-0 h-10 w-10">
+                                  <img
+                                    className="h-10 w-10 object-contain bg-white rounded p-1"
+                                    src={program.logo}
+                                    alt={program.title}
+                                  />
+                                </div>
+                                <div className="ml-4">
+                                  <div className="text-sm font-medium text-foreground">
+                                    {program.title}
+                                  </div>
+                                </div>
+                              </div>
+                            </td>
+                            <td className="px-6 py-4">
+                              <div className="flex items-center gap-1">
+                                <Calendar className="h-4 w-4 text-muted-foreground" />
+                                <span className="text-sm text-foreground">
+                                  {program.timeline}
+                                </span>
+                              </div>
+                            </td>
+                            <td className="px-6 py-4">
+                              <div className="flex items-center gap-1">
+                                <Gift className="h-4 w-4 text-muted-foreground" />
+                                <span className="text-sm text-foreground">
+                                  {program.stipend}
+                                </span>
+                              </div>
+                            </td>
+                            <td className="px-6 py-4">
+                              <div className="flex flex-wrap gap-1">
+                                {program.tags.map((tag) => (
+                                  <span
+                                    key={tag}
+                                    className="px-2 py-0.5 bg-secondary text-secondary-foreground text-xs rounded-full"
+                                  >
+                                    {tag}
+                                  </span>
+                                ))}
+                              </div>
+                            </td>
+                            <td className="px-6 py-4 text-sm font-medium">
+                              <Link href={`/programs/${program.id}`}>
+                                <Button size="sm">Learn More</Button>
+                              </Link>
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                )}
               </div>
             ) : (
               <p className="text-muted-foreground">
@@ -424,7 +515,29 @@ export default function GuidePage() {
         </div>
       )}
 
-      {/* Programs Grid Section - Original section kept intact */}
+      {/* Tab Buttons for Switching Views */}
+      <div className="py-6 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto flex justify-center gap-4 mb-8">
+          <Button
+            onClick={() => setActiveView("card")}
+            variant={activeView === "card" ? "default" : "outline"}
+            className="flex items-center gap-2"
+          >
+            <LayoutGrid className="h-4 w-4" />
+            Card View
+          </Button>
+          <Button
+            onClick={() => setActiveView("table")}
+            variant={activeView === "table" ? "default" : "outline"}
+            className="flex items-center gap-2"
+          >
+            <TableIcon className="h-4 w-4" />
+            Table View
+          </Button>
+        </div>
+      </div>
+
+      {/* Programs Display Section - Card or Table View */}
       <div className="py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
@@ -433,51 +546,145 @@ export default function GuidePage() {
             </h3>
           </div>
 
-          <div className="mt-10 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {programs.map((program) => (
-              <Card
-                key={program.title}
-                className="flex flex-col overflow-hidden hover:shadow-lg transition-shadow"
-              >
-                <div className="p-6">
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className="h-16 w-16 flex justify-center items-center">
-                      <img
-                        src={program.logo}
-                        alt={program.title}
-                        className="max-h-full max-w-full object-contain"
-                      />
+          {activeView === "card" ? (
+            <div className="mt-10 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+              {programs.map((program) => (
+                <Card
+                  key={program.title}
+                  className="flex flex-col overflow-hidden hover:shadow-lg transition-shadow"
+                >
+                  <div className="p-6">
+                    <div className="flex items-center gap-4 mb-4">
+                      <div className="h-16 w-16 flex justify-center items-center">
+                        <img
+                          src={program.logo}
+                          alt={program.title}
+                          className="max-h-full max-w-full object-contain"
+                        />
+                      </div>
+                      <h3 className="text-xl font-semibold">{program.title}</h3>
                     </div>
-                    <h3 className="text-xl font-semibold">{program.title}</h3>
+                    <p className="text-muted-foreground mb-4">
+                      {program.description.slice(0, 100)}...
+                    </p>
+                    <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
+                      <Calendar className="h-4 w-4" />
+                      <span>{program.timeline}</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm text-muted-foreground mb-4">
+                      <Gift className="h-4 w-4" />
+                      <span>{program.stipend}</span>
+                    </div>
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {program.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="px-2 py-1 bg-secondary text-secondary-foreground text-xs rounded-full"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                    <Link href={`/programs/${program.id}`} className="mt-auto">
+                      <Button className="w-full">Learn More</Button>
+                    </Link>
                   </div>
-                  <p className="text-muted-foreground mb-4">
-                    {program.description.slice(0, 100)}...
-                  </p>
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
-                    <Calendar className="h-4 w-4" />
-                    <span>{program.timeline}</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground mb-4">
-                    <Gift className="h-4 w-4" />
-                    <span>{program.stipend}</span>
-                  </div>
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {program.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="px-2 py-1 bg-secondary text-secondary-foreground text-xs rounded-full"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                  <Link href={`/programs/${program.id}`} className="mt-auto">
-                    <Button className="w-full">Learn More</Button>
-                  </Link>
-                </div>
-              </Card>
-            ))}
-          </div>
+                </Card>
+              ))}
+            </div>
+          ) : (
+            <div className="w-full rounded-lg overflow-hidden border border-border">
+              <table className="w-full border-collapse">
+                <thead className="bg-muted">
+                  <tr>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
+                      Program
+                    </th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
+                      Description
+                    </th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
+                      Timeline
+                    </th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
+                      Stipend
+                    </th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
+                      Tags
+                    </th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
+                      Actions
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {programs.map((program, idx) => (
+                    <tr
+                      key={program.id}
+                      className={
+                        idx % 2 === 0 ? "bg-background" : "bg-muted/50"
+                      }
+                    >
+                      <td className="px-6 py-4">
+                        <div className="flex items-center">
+                          <div className="flex-shrink-0 h-10 w-10">
+                            <img
+                              className="h-10 w-10 object-contain bg-white rounded p-1"
+                              src={program.logo}
+                              alt={program.title}
+                            />
+                          </div>
+                          <div className="ml-4">
+                            <div className="text-sm font-medium text-foreground">
+                              {program.title}
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                      <td className="px-6 py-4">
+                        <div className="text-sm text-foreground max-w-xs">
+                          {program.description.slice(0, 80)}...
+                        </div>
+                      </td>
+                      <td className="px-6 py-4">
+                        <div className="flex items-center gap-1">
+                          <Calendar className="h-4 w-4 text-muted-foreground" />
+                          <span className="text-sm text-foreground">
+                            {program.timeline}
+                          </span>
+                        </div>
+                      </td>
+                      <td className="px-6 py-4">
+                        <div className="flex items-center gap-1">
+                          <Gift className="h-4 w-4 text-muted-foreground" />
+                          <span className="text-sm text-foreground">
+                            {program.stipend}
+                          </span>
+                        </div>
+                      </td>
+                      <td className="px-6 py-4">
+                        <div className="flex flex-wrap gap-1">
+                          {program.tags.map((tag) => (
+                            <span
+                              key={tag}
+                              className="px-2 py-0.5 bg-secondary text-secondary-foreground text-xs rounded-full"
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                      </td>
+                      <td className="px-6 py-4 text-sm font-medium">
+                        <Link href={`/programs/${program.id}`}>
+                          <Button size="sm">Learn More</Button>
+                        </Link>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
         </div>
       </div>
     </div>
